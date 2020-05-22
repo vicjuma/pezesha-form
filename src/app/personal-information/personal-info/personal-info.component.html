@@ -1,0 +1,58 @@
+<app-shared [title]="title" [step]="step" (clickedNext)="moveToNext()">
+  <div class="form">
+    <form [formGroup]="personalInform" [attr.aria-label]="title">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="firstName"
+          required
+          placeholder="&#xf007;  first name"
+        />
+      <p
+        class="form-error"
+        *ngIf="submitted && firstNameCtrl?.errors?.required"
+      >
+        Please fill in your first name
+      </p>
+      <input
+          class="form-control"
+          type="text"
+          formControlName="lastName"
+          required
+          placeholder="&#xf007;  last name"
+      />
+      <p
+        class="form-error"
+        *ngIf="submitted && lastNameCtrl?.errors?.required"
+      >
+        Please fill in your last name
+      </p>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="phone"
+          required
+          placeholder="&#xf007;  phone"
+        />
+      <p class="form-error" *ngIf="submitted && phoneCtrl?.errors?.required">
+        Please fill in your phone contact
+      </p>
+      <span class="form-error">
+        <!--Age has to be greater or equal than 18-->
+      </span>
+      <span class="form-error">
+        <!--Age has to be less or equal than 120-->
+      </span>
+        <input
+          class="form-control"
+          type="email"
+          formControlName="email"
+          required
+          placeholder="&#xf007;  email"
+        />
+      <p class="form-error" *ngIf="submitted && emailCtrl?.errors?.required">
+        Please fill in your email contact
+      </p>
+    </form>
+  </div>
+</app-shared>

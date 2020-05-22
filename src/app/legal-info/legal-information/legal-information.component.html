@@ -1,0 +1,35 @@
+<app-shared [title]="title" [step]="step" (clickedNext)="moveToNext()"
+(clickedPrev)="moveToPrevious()">
+  <div class="form">
+    <form [formGroup]="legalForm" [attr.aria-label]="title">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="nationalID"
+          required
+          placeholder="&#xf007;  national ID"
+        />
+      <p
+        class="form-error"
+        *ngIf="submitted && nationalIDCtrl?.errors?.required"
+      >
+        Please fill in your national identification number
+      </p>
+
+        <input
+          class="form-control"
+          type="text"
+          formControlName="kraPin"
+          required
+          placeholder="&#xf007;  KRA pin"
+        />
+      <p
+        class="form-error"
+        *ngIf="submitted && kraPinCtrl?.errors?.required"
+      >
+        Please fill in your KRA pin
+    </p>
+    </form>
+  </div>
+</app-shared>
+

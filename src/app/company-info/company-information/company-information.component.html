@@ -1,0 +1,44 @@
+<app-shared
+  [title]="title"
+  [step] = "step"
+  (clickedPrev)="moveToPrevious()"
+  (clickedNext)="moveToNext()"
+>
+  <div class="form">
+    <form [formGroup]="companyForm" [attr.aria-label]="title">
+        <input
+          class="form-control"
+          type="text"
+          formControlName="companyName"
+          required
+          placeholder="&#xf007;  company name"
+        />
+      <p class="form-error" *ngIf="submitted && companyNameCtrl?.errors?.required">
+        Please fill in the company name
+      </p>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="companyLocation"
+          required
+          placeholder="&#xf007;  company location"
+        />
+      <p class="form-error" *ngIf="submitted && companyLocationCtrl?.errors?.required">
+        Please fill in your company location
+      </p>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="companyRevenue"
+          required
+          placeholder="&#xf007;  company revenue"
+        />
+      <p
+        class="form-error"
+        *ngIf="submitted && companyRevenueCtrl?.errors?.required"
+      >
+        How much revenue does your company generate?
+      </p>
+    </form>
+  </div>
+</app-shared>
